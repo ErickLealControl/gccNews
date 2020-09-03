@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>285180633803-puhvui47mhsrk55596vfuf7402nep3sr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.285180633803-puhvui47mhsrk55596vfuf7402nep3sr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyClLL0Bfp0wT5tz74w0wHivJAaWvjVPMSA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>285180633803</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.erick.gccNews</string>
+	<key>PROJECT_ID</key>
+	<string>gccnews-66679</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gccnews-66679.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:285180633803:ios:df14c79e5bf23154ba714e</string>
+	<key>DATABASE_URL</key>
+	<string>https://gccnews-66679.firebaseio.com</string>
+</dict>
+</plist>
