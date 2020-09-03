@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="categoryTextField" destination="n1m-K7-FjI" id="rPW-fM-PeK"/>
                 <outlet property="conutryTextField" destination="iCa-cR-US1" id="CXV-Od-zXq"/>
+                <outlet property="newsTableView" destination="W4S-vR-5M6" id="Xzr-ud-lED"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eMA-1J-yXe"/>
             </connections>
         </placeholder>
@@ -22,20 +23,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-bM-raf">
                     <rect key="frame" x="16" y="99" width="382" height="111"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-X5-pPN">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR2-X5-pPN">
                             <rect key="frame" x="16" y="15" width="88" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="2xu-a5-vZf"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0l-BD-fts">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0l-BD-fts">
                             <rect key="frame" x="16" y="54" width="101" height="28"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="select country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCa-cR-US1">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="select country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCa-cR-US1">
                             <rect key="frame" x="181" y="15" width="185" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -49,10 +52,20 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
+                        <constraint firstItem="YR2-X5-pPN" firstAttribute="leading" secondItem="K0l-BD-fts" secondAttribute="leading" id="7AQ-7A-lcd"/>
+                        <constraint firstItem="YR2-X5-pPN" firstAttribute="top" secondItem="Qz7-bM-raf" secondAttribute="top" constant="15" id="8Oh-N1-hcU"/>
+                        <constraint firstItem="iCa-cR-US1" firstAttribute="leading" secondItem="YR2-X5-pPN" secondAttribute="trailing" constant="77" id="PtL-Jd-h6y"/>
                         <constraint firstItem="YR2-X5-pPN" firstAttribute="leading" secondItem="Qz7-bM-raf" secondAttribute="leading" constant="16" id="abf-1p-aW0"/>
                         <constraint firstAttribute="trailing" secondItem="iCa-cR-US1" secondAttribute="trailing" constant="16" id="e3s-aC-GjV"/>
+                        <constraint firstItem="K0l-BD-fts" firstAttribute="top" secondItem="YR2-X5-pPN" secondAttribute="bottom" constant="8" id="kU1-Oq-VQp"/>
+                        <constraint firstItem="YR2-X5-pPN" firstAttribute="top" secondItem="iCa-cR-US1" secondAttribute="top" id="qI9-DW-9Di"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W4S-vR-5M6">
+                    <rect key="frame" x="0.0" y="248" width="414" height="614"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -64,11 +77,5 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </view>
-        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="5Vy-f2-1ED">
-            <rect key="frame" x="0.0" y="0.0" width="248" height="258"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <viewLayoutGuide key="safeArea" id="yQ9-GD-LEJ"/>
-            <point key="canvasLocation" x="207.24637681159422" y="15.401785714285714"/>
-        </stackView>
     </objects>
 </document>

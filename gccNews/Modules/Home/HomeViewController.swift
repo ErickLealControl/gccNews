@@ -12,12 +12,27 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var conutryTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     
+    @IBOutlet weak var newsTableView: UITableView!
+    var listOfNews = [Articles](){
+        didSet{
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+            }
+        }
+    }
+    
     let countries = ["MX",
                      "DE",
                      "ES",
-                     "US"
-    ]
-    let categories = ["bussines","entertainment","health","science","sports","technology"]
+                     "US"]
+    
+    let categories = ["bussines",
+                      "entertainment",
+                      "health",
+                      "science",
+                      "sports",
+                      "technology"]
+    
     var selectedCountry: String?
     var selectedCategory: String?
     
@@ -26,17 +41,39 @@ class HomeViewController: UIViewController {
         title = "GCC News"
         createCountryPicker()
         createToolbar()
+        getListOfNews()
+        self.newsTableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        initTableView()
+        
     }
-    
+    func getListOfNews(){
+        guard let country = conutryTextField.text else {return}
+        guard let category = categoryTextField.text else {return}
+        
+        let newrequest = NewsRequest(country: country, category: category)
+        newrequest.getNews{[weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let news):
+                self?.listOfNews = news
+            }
+        }
+    }
+    func initTableView(){
+        self.newsTableView.delegate = self
+        self.newsTableView.dataSource = self
+        
+    }
     
     func createCountryPicker(){
         let countryPicker = UIPickerView()
         countryPicker.delegate = self
         conutryTextField.inputView = countryPicker
-  
         
     }
-
+    
     
     
     func createToolbar() {
@@ -58,7 +95,9 @@ class HomeViewController: UIViewController {
     
     
     @objc func dismissKeyboard() {
+        getListOfNews()
         view.endEditing(true)
+        
     }
     
 }
@@ -93,4 +132,23 @@ extension HomeViewController:UIPickerViewDelegate,UIPickerViewDataSource{
             categoryTextField.text = selectedCategory
         }
     }
+}
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listOfNews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell =  newsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell{
+            
+            let new = listOfNews[indexPath.row]
+            cell.lblTitle.text = new.title
+            cell.lblBody.text = new.description
+            cell.url = new.url ?? ""
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    
 }
